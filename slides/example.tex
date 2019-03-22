@@ -1,0 +1,37 @@
+\section{Example}
+
+\slide{
+    \textbf{Object tracking from a motionless camera} \\
+    \note{selected processing pipeline}
+    \begin{itemize}
+        \item movement detection \\
+        \note{\(\Sigma\Delta\) Sigma-Delta}
+        \item noise filtering \\
+        \note{mathematical morphology}
+        \item connected components and bounding boxes \\
+        \note{Light Speed Labeling}
+        \item description through covariance matrices \\
+        \note{position, intensity, texture $\rightarrow$ 7 features}
+        \item tracking by greedy matching between frames \\
+        \note{Jensen-Bregman LogDet divergence}
+    \end{itemize}
+}
+
+\slide{
+    \textbf{Simplify development to enable improvements}
+    \begin{itemize}
+        \item \alert{Adapt} \note{application prototyping and flexibility}
+        \item \alert{Optimise} \note{efficiency, explore the implementation space}
+        \item \alert{Port} \note{execute on multiple platforms}
+        \item \alert{Verify} \note{correct behavior, hold some properties}
+    \end{itemize}
+    
+    \bigskip
+    
+    \textbf{C/CUDA/OpenCL are not suited, lack of productivity}
+    \begin{itemize}
+        \item not portable, verbose, time consuming and error-prone
+        \item not composable without performance loss \note{manual operator fusing}
+        \item troublesome semantics, compiler lacks freedom and knowledge
+    \end{itemize}
+}

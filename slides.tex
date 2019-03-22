@@ -1,0 +1,49 @@
+% !TEX program = xelatex
+% !BIB program = biber
+
+\documentclass[landscape, dvipsnames]{beamer}
+\usepackage{fontspec}
+\usepackage{caption}
+\captionsetup{font=scriptsize}
+\usepackage{subcaption}
+
+\defaultfontfeatures[FontAwesome]{Extension = .otf}
+\usepackage{fontawesome}
+
+\input{theme.tex}
+
+\title{Stripped Beamer}
+\def\theauthor{Thomas {\scshape K{\oe}hler}}
+\author{\theauthor}
+\institute{
+  in collaboration with John {\scshape Doe}
+}
+\date[2019]{\footnotesize no bullshit seminar --- sometime in 2019}
+
+\begin{document}
+
+\begin{frame}[noframenumbering, plain]
+\titlepage
+\end{frame}
+
+% \begin{frame}[noframenumbering, plain]{Content}
+% \tableofcontents
+% \end{frame}
+
+\input{slides/example.tex}
+
+\begin{frame}[noframenumbering, plain]
+    \begin{center}
+        \textbf{\Large Thanks!}
+    \end{center}
+
+    \bigskip
+
+    \begin{center}
+        \theauthor \\
+        \faGlobe{} bastacyclop.gitlab.io \\
+        \faEnvelope{} t.koehler.1@research.gla.ac.uk
+    \end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,92 @@
+%%%% FONTS %%%%
+
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+\usefonttheme{serif}
+
+%%%% COLORS %%%%
+
+\colorlet{byground}{white}
+\colorlet{forground}{black}
+\colorlet{tytoule}{MidnightBlue}
+\colorlet{highlight}{blue}
+
+\setbeamercolor{background canvas}{bg=byground}
+\setbeamercolor{normal text}{fg=forground}
+\setbeamercolor{alerted text}{fg=highlight}
+\setbeamercolor{frametitle}{fg=tytoule}
+\setbeamercolor{title}{fg=forground}
+%\setbeamercolor{titlelike}{fg=forground}
+
+\setbeamercolor{section in toc}{fg=forground}
+\setbeamercolor{section in toc shaded}{fg=forground}
+
+\setbeamercolor{item}{fg=forground}
+\setbeamercolor{subitem}{fg=forground}
+\setbeamercolor{subsubitem}{fg=forground}
+\setbeamercolor{description item}{fg=forground}
+
+\setbeamercolor{caption}{fg=forground}
+\setbeamercolor{caption name}{fg=forground}
+\setbeamercolor{section page}{fg=byground}
+
+\setbeamercolor{block title}{fg=tytoule, bg=byground}
+\setbeamercolor{block body}{fg=forground, bg=byground}
+\setbeamercolor{block title alerted}{fg=tytoule, bg=byground}
+\setbeamercolor{block body alerted}{fg=tytoule, bg=byground}
+\setbeamercolor{block title example}{fg=tytoule, bg=byground}
+\setbeamercolor{block body example}{fg=tytoule, bg=byground}
+
+%%%% TEMPLATE %%%%
+
+% \setlength{\headsep}{8pt}
+
+% disable navigation
+\setbeamertemplate{navigation symbols}{}
+
+% disable "Figure:" in the captions
+\setbeamertemplate{caption}{\scriptsize\insertcaption}
+\setbeamertemplate{caption label separator}{}
+
+\setbeamerfont{footnote}{size=\scriptsize}
+
+% title page
+% \setbeamertemplate{title page}{}
+
+% frame titles
+\setbeamertemplate{frametitle}[default][center]
+
+% footline
+\setbeamertemplate{footline}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[forground]{footline}%
+    \begin{beamercolorbox}[wd=\textwidth, sep=1em]{normal text}
+    \inserttitle%
+    \hfill%
+    \insertframenumber%/\inserttotalframenumber%
+    \end{beamercolorbox}
+}
+
+\AtBeginSection[] % Do nothing for \section*
+{
+    \frame{\sectionpage}
+}
+
+%%%% COMMANDS %%%%
+
+\newcommand{\currenttytoule}{}
+\renewcommand{\section}[1]{
+    \renewcommand{\currenttytoule}{#1}
+    \addcontentsline{toc}{section}{\makebox[2em]{\the\numexpr\insertframenumber+1\relax} #1 \par}
+}
+\newcommand{\slide}[1]{
+    \begin{frame}{\currenttytoule}
+        #1
+    \end{frame}
+}
+\newcommand{\group}[2]{
+    \textbf{#1} \\
+    #2
+}
+
+\renewcommand{\note}[1]{\textit{\scriptsize #1}}
